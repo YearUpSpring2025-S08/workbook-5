@@ -55,6 +55,31 @@ public class House extends Asset{
         this.lotSize = lotSize;
     }
 
+    @Override
+    public double getValue() {
+        double result;
+
+        double pricePerSquareFoot = 0;
+        switch (this.condition){ //(1 -excellent, 2 -good, 3 -fair, 4 -poor)
+            case 1: pricePerSquareFoot = 180;
+                break;
+            case 2: pricePerSquareFoot = 130;
+                break;
+            case 3: pricePerSquareFoot = 90;
+                break;
+            case 4: pricePerSquareFoot = 80;
+                break;
+
+        }
+
+        result = (this.squareFoot * pricePerSquareFoot) + (this.lotSize * 0.25);
+
+
+
+
+        return result;
+    }
+
     //    public House(String description, String dateAcquired, double originalCost){
 //        super(description, dateAcquired, originalCost);
 //
